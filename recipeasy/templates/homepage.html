@@ -1,54 +1,99 @@
 <!DOCTYPE html>
+<html>
 
 <style>
     .topRatedMeals {
-        float:left;
-        padding-right:20px;
-    }
-
-    .topRatedMeals {
         width: 65%;
-        height: 40%;
-        padding:30px;
-        display: inline;
+        padding: 20px;
+        border: 2px solid black;
     }
 
-    .headerOfTopRatedMeals {
-        font-size:20px;
-        outline-color: black;
-        outline-width:5px;
-        outline-style:solid;
-        display:inline;
+    .header {
+        align-items: center;
+        display: flex;
+        gap: 50px;
+    }
+
+    .header h3 {
+        font-size: 30px;
+    }
+
+    .searchbar {
+        display: flex;
+    }
+
+    .searchbar input {
+        width: 120px;
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    .searchbar button {
+        padding: 6px;
+        cursor: pointer;
     }
 
     .images {
-        outline-color: black;
-        outline-style:solid;
-        outline-width:5px;
-        display:inline-flex;
+        display: flex;
+        gap: 30px;
+    }
+
+    .mealCard {
+        border: 2px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .mealCard img {
+        width: 175px;
+        height: 120px;
+    }
+
+    .stars {
+        color: orange;
+        font-size: 18px;
     }
 
 </style>
 
-<html>
-    <head>
-        <title>RecipEasy</title>
-    </head>
+<head>
+    <title>RecipEasy</title>
+</head>
 
-    <body>
-        <div class="topRatedMeals">
-            <container class ="headerOfTopRatedMeals">
-                <form class="searchbar">
-                    <input type = "text" placeholder="Search.." name="search">
-                    <button type="submit"></button>
-                </form>
-            <h3>Top Rated Meals</h3>
-            </container>
-            <container class ="images">
-                <img src ="c:\Users\zoest\Workspace\tango_with_django_project\static\images\rango.jpg" style="width:100px;height:150px;">
-                <img src ="c:\Users\zoest\Workspace\tango_with_django_project\static\images\rango.jpg" style="width:150px;height:250px;">
-                <img src ="c:\Users\zoest\Workspace\tango_with_django_project\static\images\rango.jpg" style="width:150px;height:250px;">
-            </container>
+<body>
+    <div class="topRatedMeals">
+        <div class="header">
+            <form class="searchbar">
+                <input type = "text" placeholder="Search.." name="search">
+                <button type="submit">🔍</button>
+            </form>
+
+        <h3>Top Rated Meals</h3>
+
         </div>
-    </body>
+    </div>
+
+    <div class="images">
+
+        <div class="mealCard">
+            <img src="C:\Users\zoest\Downloads\pizza.jpg">
+            <div class="stars">★★★★★</div>
+            <p>Pepperoni Pizza</p>
+        </div>
+
+        <div class="mealCard">
+            <img src="C:\Users\zoest\Downloads\chorizo.jpg">
+            <div class="stars">★★★★★</div>
+            <p>Chorizo Fried Rice</p>
+        </div>
+
+        <div class="mealCard">
+            <img src="C:\Users\zoest\Downloads\chowmein.jpg">
+            <div class="stars">★★★★</div>
+            <p>Chicken Chow Mein</p>
+        </div>
+
+    </div>
+    
+</body>
 </html>
