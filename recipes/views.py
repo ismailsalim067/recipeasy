@@ -10,4 +10,9 @@ def home(request):
 def redirect_to_homepage(request):
     return redirect("homepage/")
 
+def create_recipe(request):
+    return HttpResponse("Create Recipe view")
+
+
+
 
