@@ -19,7 +19,7 @@
             <form method="POST">
                 {% csrf_token %}
 
-                <div class="row">
+                <div class="row align-items-stretch">
                     <div class="col-md-7">
 
                         <div class="mb-2">
@@ -71,7 +71,7 @@
 
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-md-5 d-flex flex-column">
                         <div class="mb-2">
                             <label for="image" class="form-label">Upload Image:</label>
                             <input name="image" type="file" class="form-control" id="image" placeholder="Upload image (optional)">
@@ -81,7 +81,7 @@
                             <button type="submit" class="btn btn-success w-100">Create Recipe</button>
                         </div>
 
-                        <div class="button">
+                        <div class="button mt-auto mb-3">
                             <a href="/homepage/" class="btn btn-outline-success">Home</a>
                         </div>
                     </div>
