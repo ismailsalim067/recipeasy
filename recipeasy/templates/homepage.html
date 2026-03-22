@@ -175,9 +175,15 @@
 <div class="container">
     <div class="topRatedMeals">
         <div class="topHeader">
-            <h1>Top Rated Meals</h1>
+            <h1>{% if query or selected_difficulty %}Search Results{% else %}Top Rated Meals{% endif %}</h1>
             <form class="search-container" method="get">
-                <input class="search-bar" type="search" name="q" value="{{ query }}" placeholder="Search for cuisine / difficulty..">
+                <input class="search-bar" type="search" name="q" value="{{ query }}" placeholder="Search..">
+                <select class="form-select" name="difficulty">
+                    <option value="">All Difficulties</option>
+                    <option value="easy" {% if selected_difficulty == "easy" %}selected{% endif %}>Easy</option>
+                    <option value="medium" {% if selected_difficulty == "medium" %}selected{% endif %}>Medium</option>
+                    <option value="hard" {% if selected_difficulty == "hard" %}selected{% endif %}>Hard</option>
+                </select>
                 <button type="submit" style="display:none;"></button>
             </form>
         </div>
@@ -232,13 +238,9 @@
         <div class="categories">
             <h1>Categories</h1>
             <ul>
-                <li>Easy</li>
-                <li>Medium</li>
-                <li>Difficult</li>
-                <li>Italian</li>
-                <li>Indian</li>
-                <li>Mexican</li>
-                <li>Chinese</li>
+                <li><a href="?difficulty=easy">Easy</a></li>
+                <li><a href="?difficulty=medium">Medium</a></li>
+                <li><a href="?difficulty=hard">Hard</a></li>
                 <li>My Saved Recipes</li>
             </ul>
         </div>
