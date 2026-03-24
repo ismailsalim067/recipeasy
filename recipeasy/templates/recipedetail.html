@@ -15,7 +15,7 @@
     <div>
         <div class="recipe-main mb-3">
             <div class="recipe-img-wrapper">
-                <img src="C:\Users\zoest\Downloads\chowmein.jpg" class="recipe-img" alt="Recipe Image">
+                <img src="" class="recipe-img" alt="Recipe Image">
                 <div class="rating">
                     {% for i in "12345" %}
                         {% if forloop.counter <= average_rating %}★{% else %}☆{% endif %}
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="recipeCard">
+        <div class="card">
             <h4>Instructions</h4>
             <div class="instructions-wrapper">
                 <ol>
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="recipeCard reviews-section">
+        <div class="card reviews-section">
             <h4>Reviews</h4>
             <div class="review-box mb-3">
                 {% for rating in ratings %}

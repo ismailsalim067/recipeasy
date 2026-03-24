@@ -65,6 +65,7 @@
                 <a class="buttonStyle" href="{% url 'recipes:createrecipe' %}">Add Recipe</a>
                 <a class="buttonStyle" href="{% url 'recipes:myrecipes' %}">All My Uploads</a>
             </div>
+
         {% else %}
             <p>You are not logged in. Please log in to view your recipes or add a recipe.</p>
         {% endif %}
@@ -76,8 +77,8 @@
                 <p>Account: {{ user.username }}</p>
                 <a class="buttonStyle" href="{% url 'recipes:logout' %}">Sign Out</a>
             {% else %}
-                <a class="buttonStyle" href="{% url 'recipes:login' %}">Sign In</a>
                 <a class="buttonStyle" href="{% url 'recipes:signup' %}">Sign Up</a>
+                <a class="buttonStyle" href="{% url 'recipes:login' %}">Sign In</a>
             {% endif %}
         </div>
 
