@@ -1,15 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Recipe Detail</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+{% extends "base.html" %}
+{% block title %}Recipe Detail{% endblock %}
+{% block extra_css %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
+{% endblock %}
 
-<body>
-
+{% block content %}
 <div class="page-grid">
 
     <div>
@@ -98,6 +93,4 @@
     </div>
 
 </div>
-
-</body>
-</html>
+{% endblock %}
