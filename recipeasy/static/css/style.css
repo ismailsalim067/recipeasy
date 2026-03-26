@@ -433,9 +433,10 @@ a.recipe-link:active {
 }
     
 .myRecentUploadsButtons {
-    position: absolute;
-    bottom: 20px;
-    right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin: 20px 10px 20px 10px;
 }
 
 .sidebar.homepage-sidebar {
