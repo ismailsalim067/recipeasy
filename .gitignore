@@ -206,7 +206,8 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 media/*
-media/*
 !media/.gitkeep
 !media/recipe_images/
 !media/recipe_images/.gitkeep
+
+.DS_Store
