@@ -42,8 +42,8 @@ def populate():
             "cuisine": "indian",
             "difficulty": "medium",
             "cooking_time": 45,
-            "ingredients": "Chicken, onion, garlic, curry paste, coconut milk",
-            "instructions": "Cook onion and garlic. Add chicken and curry paste. Stir in coconut milk and simmer.",
+            "ingredients": "Chicken\nOnion\nGarlic\nCurry paste\nCoconut milk",
+            "instructions": "Cook the onion and garlic.\nAdd the chicken and curry paste.\nStir in the coconut milk.\nSimmer until the chicken is cooked through.",
         },
         {
             "author": "adam",
@@ -52,8 +52,8 @@ def populate():
             "cuisine": "other",
             "difficulty": "medium",
             "cooking_time": 20,
-            "ingredients": "Steak, butter, garlic, salt, pepper",
-            "instructions": "Season the steak. Sear in a hot pan with butter and garlic. Rest before serving.",
+            "ingredients": "Steak\nButter\nGarlic\nSalt\nPepper",
+            "instructions": "Season the steak.\nSear it in a hot pan with butter and garlic.\nRest before serving.",
         },
         {
             "author": "zoe",
@@ -62,8 +62,8 @@ def populate():
             "cuisine": "italian",
             "difficulty": "easy",
             "cooking_time": 40,
-            "ingredients": "Spaghetti, minced beef, onion, garlic, tomato sauce",
-            "instructions": "Boil pasta. Cook beef with onion and garlic. Add tomato sauce. Combine and serve.",
+            "ingredients": "Spaghetti\nMinced beef\nOnion\nGarlic\nTomato sauce",
+            "instructions": "Boil the pasta.\nCook the beef with onion and garlic.\nAdd the tomato sauce.\nCombine and serve.",
         },
         {
             "author": "molly",
@@ -72,8 +72,8 @@ def populate():
             "cuisine": "italian",
             "difficulty": "easy",
             "cooking_time": 25,
-            "ingredients": "Pizza dough, tomato sauce, mozzarella, basil",
-            "instructions": "Spread sauce on the dough, add cheese, and bake until golden.",
+            "ingredients": "Pizza dough\nTomato sauce\nMozzarella\nBasil",
+            "instructions": "Spread the sauce on the dough.\nAdd the mozzarella and basil.\nBake until golden.",
         },
         {
             "author": "lewis",
@@ -82,8 +82,8 @@ def populate():
             "cuisine": "other",
             "difficulty": "easy",
             "cooking_time": 20,
-            "ingredients": "Minced beef, burger buns, lettuce, cheese",
-            "instructions": "Shape the beef into patties, cook in a pan, and serve in buns with the toppings.",
+            "ingredients": "Minced beef\nBurger buns\nLettuce\nCheese",
+            "instructions": "Shape the beef into patties.\nCook them in a pan.\nServe in buns with the toppings.",
         },
     ]
 
@@ -108,17 +108,35 @@ def populate():
         if created:
             print(f"Created recipe: {recipe.name}")
         else:
-            print(f"Recipe already exists: {recipe.name}")
+            recipe.description = data["description"]
+            recipe.cuisine = data["cuisine"]
+            recipe.difficulty = data["difficulty"]
+            recipe.cooking_time = data["cooking_time"]
+            recipe.ingredients = data["ingredients"]
+            recipe.instructions = data["instructions"]
+            recipe.save()
+            print(f"Updated recipe: {recipe.name}")
 
         created_recipes.append(recipe)
 
     for recipe in created_recipes:
         rating_users = random.sample(created_users, k=min(2, len(created_users)))
         for user in rating_users:
+            sample_comments = [
+                "Really easy to follow and tasted great.",
+                "Loved this recipe and would make it again.",
+                "Simple ingredients and very good flavour.",
+                "Turned out well and was perfect for dinner.",
+                "Quick to make and everyone enjoyed it.",
+                "Clear steps and a solid result overall.",
+            ]
             rating, created = Rating.objects.get_or_create(
                 recipe=recipe,
                 user=user,
-                defaults={"value": random.randint(3, 5)},
+                defaults={
+                    "value": random.randint(3, 5),
+                    "comment": random.choice(sample_comments),
+                },
             )
             if created:
                 print(f"Added rating for {recipe.name} by {user.username}")

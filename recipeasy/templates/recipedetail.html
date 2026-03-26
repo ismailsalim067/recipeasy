@@ -75,7 +75,7 @@
                 <div class="instructions-wrapper">
                     <ol>
                         {% for step in recipe.instructions.splitlines %}
-                            {% if step|trim %}
+                            {% if step %}
                                 <li>{{ step }}</li>
                             {% endif %}
                         {% endfor %}
