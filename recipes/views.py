@@ -1,13 +1,13 @@
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
-from django.db.models import Count, Q
+from django.db.models import Avg, Count, Q
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import RecipeForm, SignUpForm, RatingForm
 from .models import Recipes, Rating, SavedRecipe
-from django.db.models import Avg, Sum
+from django.db.models import Sum
 
 
 # Create your views here.
@@ -15,9 +15,19 @@ from django.db.models import Avg, Sum
 def home(request):
     query = request.GET.get("q", "").strip()
     recipes = Recipes.objects.all()
+    top_rated_recipes = Recipes.objects.annotate(
+        average_rating=Avg('ratings__value'),
+        rating_total=Count('ratings')
+    ).order_by('-average_rating', '-rating_total', '-created_at')[:6]
 
     if query:
         recipes = recipes.filter(
+            Q(name__icontains=query)
+            | Q(description__icontains=query)
+            | Q(ingredients__icontains=query)
+            | Q(cuisine__icontains=query)
+        )
+        top_rated_recipes = top_rated_recipes.filter(
             Q(name__icontains=query)
             | Q(description__icontains=query)
             | Q(ingredients__icontains=query)
@@ -37,6 +47,7 @@ def home(request):
 
     return render(request, "homepage.html", {
         "recipes": recipes,
+        "top_rated_recipes": top_rated_recipes,
         "query": query,
         "selected_difficulty": "",
         "recent_uploads": recent_uploads,
