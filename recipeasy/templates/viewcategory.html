@@ -31,7 +31,7 @@
             {% if recipe.image %}
               <img src="{{ recipe.image.url }}" class="categoryCard-img-top" alt="{{ recipe.name }}">
             {% else %}
-              <img src="" class="categoryCard-img-top" alt="{{ recipe.name }}">
+              <div class="categoryCard-img-top no-image">No Image</div>
             {% endif %}
             <div class="categoryCard-body p-2">
               <p class="categoryCard-text">{{ recipe.name }}</p>
