@@ -71,6 +71,7 @@ def populate():
             "cooking_time": 40,
             "ingredients": "Spaghetti\nMinced beef\nOnion\nGarlic\nTomato sauce",
             "instructions": "Boil the pasta.\nCook the beef with onion and garlic.\nAdd the tomato sauce.\nCombine and serve.",
+            "image": "spaghetti_bolognese.jpg",
         },
         {
             "author": "molly",
@@ -81,6 +82,7 @@ def populate():
             "cooking_time": 25,
             "ingredients": "Pizza dough\nTomato sauce\nMozzarella\nBasil",
             "instructions": "Spread the sauce on the dough.\nAdd the mozzarella and basil.\nBake until golden.",
+            "image": "pizza.jpg",
         },
         {
             "author": "lewis",
@@ -91,6 +93,7 @@ def populate():
             "cooking_time": 20,
             "ingredients": "Minced beef\nBurger buns\nLettuce\nCheese",
             "instructions": "Shape the beef into patties.\nCook them in a pan.\nServe in buns with the toppings.",
+            "image": "burgers.jpg",
         },
     ]
 
